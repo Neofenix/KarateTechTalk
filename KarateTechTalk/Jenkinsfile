@@ -11,14 +11,12 @@ pipeline {
     }
 
     stages {
-
-        stage('Maven build') {
-            steps {
-			    dir('KarateTechTalk') {
+      dir('KarateTechTalk') {
+			stage('Maven build') {
+				steps {
 					sh "mvn clean"
-                }
+				}
 			}
-        }
 
         stage('test') {
             steps {
@@ -35,7 +33,7 @@ pipeline {
                 jsonReportDirectory: "target"
             }
         }
-
+	  }
     }
 
 }
