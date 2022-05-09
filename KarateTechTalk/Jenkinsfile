@@ -31,12 +31,13 @@ pipeline {
 		}
         stage('generate reports') {
             steps {
-                cucumber buildStatus: "UNSTABLE",
-                fileIncludePattern: "**/*.json",
-                jsonReportDirectory: "target"
-            }
-        }
-
+			    dir('KarateTechTalk') {
+					cucumber buildStatus: "UNSTABLE",
+					fileIncludePattern: "**/*.json",
+					jsonReportDirectory: "target"
+				}
+			}
+		}
     }
 
 }
