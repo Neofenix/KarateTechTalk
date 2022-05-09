@@ -2,10 +2,6 @@ pipeline {
 
     agent { label "master" }
 
-    tools {
-        maven 'Maven-LATEST'
-    }
-
     parameters {
         choice(
                 choices: ['dev', 'preprod'],
