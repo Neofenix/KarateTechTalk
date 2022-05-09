@@ -6,8 +6,8 @@ pipeline {
     parameters {
         choice(
                 choices: ['testParallel', 'test'],
-                description: 'Choose an environment please',
-                name: 'Environment'
+                description: 'Choose an execution type',
+                name: 'Execution type'
         )
     }
 
