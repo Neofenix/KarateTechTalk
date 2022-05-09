@@ -21,7 +21,7 @@ class ExamplesTest {
     void testParallel() {
         Results results = Runner.path("classpath:examples")
                 .outputCucumberJson(true)
-                .parallel(5);
+                .parallel(3);
         generateReport(results.getReportDir());
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
