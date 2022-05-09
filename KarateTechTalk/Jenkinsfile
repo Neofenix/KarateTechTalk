@@ -34,7 +34,7 @@ pipeline {
 			    dir('KarateTechTalk/target') {
 					cucumber buildStatus: "UNSTABLE",
 					fileIncludePattern: "**/*.json",
-					jsonReportDirectory: "target/surefire-reports"
+					jsonReportDirectory: "target/karate-reports"
 				}
 			}
 		}
