@@ -17,23 +17,25 @@ pipeline {
 					sh "mvn clean"
 				}
 			}
-
-        stage('test') {
-            steps {
-                script {
-                    sh "mvn test -Denv=${params.Environment}"
-                }
-            }
+		}	
+		dir('KarateTechTalk') {
+			stage('test') {
+				steps {
+					script {
+						sh "mvn test -Denv=${params.Environment}"
+					}
+				}
+			}
         }
-
-        stage('generate reports') {
-            steps {
-                cucumber buildStatus: "UNSTABLE",
-                fileIncludePattern: "**/*.json",
-                jsonReportDirectory: "target"
-            }
+		dir('KarateTechTalk') {
+			stage('generate reports') {
+				steps {
+					cucumber buildStatus: "UNSTABLE",
+					fileIncludePattern: "**/*.json",
+					jsonReportDirectory: "target"
+				}
+			}
         }
-	  }
     }
 
 }
