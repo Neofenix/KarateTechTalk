@@ -2,6 +2,7 @@ pipeline {
 
     agent { label "master" }
 
+
     parameters {
         choice(
                 choices: ['dev', 'preprod'],
@@ -11,13 +12,14 @@ pipeline {
     }
 
     stages {
-      dir('KarateTechTalk') {
-			stage('Maven build') {
-				steps {
+
+        stage('Maven build') {
+            steps {
+			    dir('KarateTechTalk') {
 					sh "mvn clean"
 				}
-			}
-		}
+            }
+        }
         stage('test') {
             steps {
                 script {
