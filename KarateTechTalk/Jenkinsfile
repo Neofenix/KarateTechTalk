@@ -22,12 +22,13 @@ pipeline {
         }
         stage('test') {
             steps {
-                script {
-                    sh "mvn test -Denv=${params.Environment}"
-                }
-            }
-        }
-
+			    dir('KarateTechTalk') {
+					script {
+						sh "mvn test -Denv=${params.Environment}"
+					}
+				}
+			}
+		}
         stage('generate reports') {
             steps {
                 cucumber buildStatus: "UNSTABLE",
