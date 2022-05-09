@@ -26,9 +26,13 @@ class ExamplesTest {
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
-    @Karate.Test
-    Karate test() {
-        return Karate.run("classpath:examples").relativeTo(getClass());
+    @Test
+    void test() {
+        Results results = Runner.path("classpath:examples")
+            .outputCucumberJson(true)
+            .parallel(1);
+        generateReport(results.getReportDir());
+        assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
     @Test
