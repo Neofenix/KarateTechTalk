@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"examples\/posts\/post[1:6]","start":1652083620845,"end":1652083621932,"title":"examples\/posts\/post[1:6] 03:07:00.845-03:07:01.932 get all posts and then get the first post by id"},{"id":2,"group":1,"content":"examples\/posts\/post[2:17]","start":1652083621935,"end":1652083622274,"title":"examples\/posts\/post[2:17] 03:07:01.935-03:07:02.274 create a post and then get it by id"},{"id":3,"group":1,"content":"examples\/users\/users[1:6]","start":1652083622354,"end":1652083622727,"title":"examples\/users\/users[1:6] 03:07:02.354-03:07:02.727 get all users and then get the first user by id"},{"id":4,"group":1,"content":"examples\/users\/users[2:17]","start":1652083622733,"end":1652083623081,"title":"examples\/users\/users[2:17] 03:07:02.733-03:07:03.081 create a user and then get user email"},{"id":5,"group":1,"content":"examples\/hooks\/Hooks[1:17]","start":1652083620283,"end":1652083620419,"title":"examples\/hooks\/Hooks[1:17] 03:07:00.283-03:07:00.419 First scenario"},{"id":6,"group":1,"content":"examples\/hooks\/Hooks[2:20]","start":1652083620424,"end":1652083620426,"title":"examples\/hooks\/Hooks[2:20] 03:07:00.424-03:07:00.426 Second scenario"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

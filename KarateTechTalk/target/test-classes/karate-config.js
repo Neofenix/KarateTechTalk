@@ -15,8 +15,10 @@ function fn() {
     // customize
   }
 
+
+   // Callsingle -> execute before all features, Call -> execute before each scenarios
    //var config = { myprop: 'myvalue', myurl: 'somevalue' };
-   //var accesToken = karate.callSingle('classpath:helpers/users.feature', config).authToken
+   //var accesToken = karate.call('classpath:helpers/Token.feature').Token
    //karate.configure('headers', {Authorization: 'Token ' + accesToken, Accept: 'application/json' })
 
   return config;

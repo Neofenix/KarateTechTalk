@@ -26,6 +26,18 @@ class ExamplesTest {
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
+    @Karate.Test
+    Karate test() {
+        return Karate.run("classpath:examples").relativeTo(getClass());
+    }
+
+    @Test
+    void testDebug() {
+        Results results = Runner.path("classpath:examples")
+                .tags("@debug")
+                .parallel(1);
+        assertEquals(0, results.getFailCount(), results.getErrorMessages());
+    }
 
     public static void generateReport(String karateOutputPath) {
         Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
