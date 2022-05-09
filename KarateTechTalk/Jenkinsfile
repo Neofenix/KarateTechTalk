@@ -14,9 +14,10 @@ pipeline {
 
         stage('Maven build') {
             steps {
-			    cd "KarateTechTalk"
-                sh "mvn clean"
-            }
+			    dir('KarateTechTalk') {
+					sh "mvn clean"
+                }
+			}
         }
 
         stage('test') {
